@@ -144,3 +144,18 @@ $api->groupFile;
 - [x] 获取群子目录文件列表 `getGroupFilesByFolder`
 - [x] 获取群文件资源链接 `getGroupFileUrl`
 - [x] 上传私聊文件 `uploadPrivateFile`
+
+```php
+$api->cq;
+```
+- [x] <span style="text-decoration: line-through;">获取 Cookies</span> `getCookies`
+- [x] <span style="text-decoration: line-through;">获取 CSRF Token</span> `getCsrfToken`
+- [x] <span style="text-decoration: line-through;">获取 QQ 相关接口凭证</span> `getCredentials`
+- [x] 获取版本信息 `getVersionInfo`
+- [x] 获取状态 `getStatus`
+- [x] 清理缓存 `cleanCache`
+- [x] 重载事件过滤器 `reloadEventFilter`
+- [x] 下载文件到缓存目录 `downloadFile`
+- [x] 检查链接安全性 `checkUrlSafely`
+- [x] 获取中文分词 ( 隐藏 API ) `getWordSlices`
+- [x] 对事件执行快速操作 ( 隐藏 API ) `handleQuickOperation`

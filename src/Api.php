@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Itwmw\GoCqHttp\Apis\Bot;
+use Itwmw\GoCqHttp\Apis\Cq;
 use Itwmw\GoCqHttp\Apis\Friend;
 use Itwmw\GoCqHttp\Apis\GroupAction;
 use Itwmw\GoCqHttp\Apis\GroupFile;
@@ -28,6 +29,7 @@ use Itwmw\GoCqHttp\Middlewares\ResponseMiddleware;
  * @property-read GroupSetting $groupSetting 群设置相关 API
  * @property-read GroupAction  $groupAction  群操作相关 API
  * @property-read GroupFile    $groupFile    群文件相关 API
+ * @property-read Cq           $cq           Go-CqHttp 相关 Api
  */
 class Api
 {

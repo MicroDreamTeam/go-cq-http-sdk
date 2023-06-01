@@ -14,7 +14,7 @@ class GroupFile extends BaseApi
      * 上传群文件
      *
      * <b style="color:#e7c000">在不提供 folder 参数的情况下默认上传到根目录
-     * 只能上传本地文件, 需要上传 http 文件的话请先调用 download_file API下载</b>
+     * 只能上传本地文件, 需要上传 http 文件的话请先调用 {@see Cq::downloadFile()}  API下载</b>
      *
      * @param int         $group_id 群号
      * @param string      $file     本地文件路径
@@ -190,7 +190,7 @@ class GroupFile extends BaseApi
      * 上传私聊文件
      *
      * <b style="color:#e7c000">在不提供 folder 参数的情况下默认上传到根目录
-     * 只能上传本地文件, 需要上传 http 文件的话请先调用 download_file API下载</b>
+     * 只能上传本地文件, 需要上传 http 文件的话请先调用 {@see Cq::downloadFile()} API下载</b>
      *
      * @param int    $user_id 对方 QQ 号
      * @param string $file    本地文件路径
