@@ -7,6 +7,7 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Itwmw\GoCqHttp\Apis\Bot;
 use Itwmw\GoCqHttp\Apis\Friend;
+use Itwmw\GoCqHttp\Apis\GroupInfo;
 use Itwmw\GoCqHttp\Apis\Image;
 use Itwmw\GoCqHttp\Apis\Message;
 use Itwmw\GoCqHttp\Apis\Record;
@@ -14,12 +15,13 @@ use Itwmw\GoCqHttp\Apis\Request;
 use Itwmw\GoCqHttp\Middlewares\ResponseMiddleware;
 
 /**
- * @property-read Bot     $bot     Bot 账号的相关 API
- * @property-read Friend  $friend  好友的相关 API
- * @property-read Message $message 消息的相关 API
- * @property-read Image   $image   图片的相关 API
- * @property-read Record  $record  语音的相关 API
- * @property-read Request $request 上报处理相关 API
+ * @property-read Bot     $bot         Bot 账号的相关 API
+ * @property-read Friend  $friend      好友的相关 API
+ * @property-read Message $message     消息的相关 API
+ * @property-read Image   $image       图片的相关 API
+ * @property-read Record  $record      语音的相关 API
+ * @property-read Request $request     上报处理相关 API
+ * @property-read GroupInfo $groupInfo 群信息相关 API
  */
 class Api
 {

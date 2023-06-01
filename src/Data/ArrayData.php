@@ -11,7 +11,7 @@ use Itwmw\GoCqHttp\Support\Utils;
  *
  * @implements \ArrayAccess<TKey, TValue>
  */
-final class ArrayData extends CreateData implements \ArrayAccess
+final class ArrayData implements \ArrayAccess
 {
     /**
      * @var array<TKey, TValue>

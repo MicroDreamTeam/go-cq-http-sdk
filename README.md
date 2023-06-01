@@ -39,7 +39,7 @@ composer require itwmw/go-cq-http-sdk
 ```php
 $api = new Itwmw\GoCqHttpApi();
 // 发送私聊消息
-$api->message->sendMsg('测试消息', 'private', '995645888');
+$api->message->sendMsg('测试消息', 'private', 995645888);
 ```
 
 ### 已完成Api
@@ -96,3 +96,14 @@ $api->request;
 - [x] 处理加好友请求 `setFriendAddRequest`
 - [x] 处理加群请求／邀请 `setGroupAddRequest`
 
+```php
+$api->groupInfo;
+```
+- [x] 获取群信息 `getGroupInfo`
+- [x] 获取群列表 `getGroupList`
+- [x] 获取群成员信息 `getGroupMemberInfo`
+- [x] 获取群成员列表 `getGroupMemberList`
+- [x] 获取群荣誉信息 `getGroupHonorInfo`
+- [x] 获取群系统消息 `getGroupSystemMsg`
+- [x] 获取精华消息列表 `getEssenceMsgList`
+- [x] 获取群 @全体成员 剩余次数 `getGroupAtAllRemain`
