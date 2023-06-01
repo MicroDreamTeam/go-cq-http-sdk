@@ -21,6 +21,7 @@ class GetEssenceMsgList extends CreateData
         public readonly string $operator_nick,
         public readonly int $operator_time,
         public readonly int $message_id,
+        ...$args
     ) {
     }
 }

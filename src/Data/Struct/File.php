@@ -31,6 +31,7 @@ class File extends CreateData
         public readonly int $download_times,
         public readonly int $uploader,
         public readonly string $uploader_name,
+        ...$args
     ) {
     }
 }

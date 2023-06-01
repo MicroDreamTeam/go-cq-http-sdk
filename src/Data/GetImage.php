@@ -13,6 +13,7 @@ class GetImage extends CreateData
         public readonly int $size,
         public readonly string $filename,
         public readonly string $url,
+        ...$args
     ) {
     }
 }

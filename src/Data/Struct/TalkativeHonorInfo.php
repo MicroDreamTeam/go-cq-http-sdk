@@ -17,6 +17,7 @@ class TalkativeHonorInfo extends CreateData
         public readonly string $nickname,
         public readonly string $avatar,
         public readonly int $day_count,
+        ...$args
     ) {
     }
 }

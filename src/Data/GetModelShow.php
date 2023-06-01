@@ -12,7 +12,7 @@ class GetModelShow extends CreateData
      */
     public readonly array $variants;
 
-    public function __construct(array $variants)
+    public function __construct(array $variants, ...$args)
     {
         $this->variants = $variants;
     }

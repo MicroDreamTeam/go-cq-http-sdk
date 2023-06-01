@@ -35,6 +35,7 @@ class Sender extends CreateData
         #[ExpectedValues(values: ['owner', 'admin', 'member'])]
         public readonly ?string $role = null,
         public readonly ?string $title = null,
+        ...$args
     ) {
     }
 }

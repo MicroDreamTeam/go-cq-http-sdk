@@ -17,6 +17,7 @@ class GetGroupFileSystemInfo extends CreateData
         public readonly int $used_space,
         public readonly int $total_space,
         public readonly int $group_id,
+        ...$args
     ) {
     }
 }

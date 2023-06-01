@@ -19,7 +19,8 @@ class GetGroupRootFiles extends CreateData
      */
     public function __construct(
         ?array $files = null,
-        ?array $folders = null
+        ?array $folders = null,
+        ...$args
     ) {
         $this->files   = $files ? $this->createArrayData($files, File::class) : null;
         $this->folders = $folders ? $this->createArrayData($folders, Folder::class) : null;

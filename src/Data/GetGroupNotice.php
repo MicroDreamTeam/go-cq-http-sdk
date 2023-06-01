@@ -22,6 +22,7 @@ class GetGroupNotice extends CreateData
         public readonly int $sender_id,
         public readonly int $publish_time,
         public readonly array $message,
+        ...$args
     ) {
     }
 }

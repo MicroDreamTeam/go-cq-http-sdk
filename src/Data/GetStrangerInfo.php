@@ -24,6 +24,7 @@ class GetStrangerInfo extends CreateData
         public readonly string $qid,
         public readonly int $level,
         public readonly int $login_days,
+        ...$args
     ) {
     }
 }

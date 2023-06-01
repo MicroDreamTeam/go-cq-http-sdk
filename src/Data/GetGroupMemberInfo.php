@@ -39,6 +39,7 @@ class GetGroupMemberInfo extends CreateData
         public readonly int $title_expire_time,
         public readonly bool $card_changeable,
         public readonly int $shut_up_timestamp,
+        ...$args
     ) {
     }
 }

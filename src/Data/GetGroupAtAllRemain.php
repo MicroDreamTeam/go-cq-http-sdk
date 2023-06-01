@@ -13,6 +13,7 @@ class GetGroupAtAllRemain extends CreateData
         public readonly bool $can_at_all,
         public readonly int $remain_at_all_count_for_group,
         public readonly int $remain_at_all_count_for_uin,
+        ...$args
     ) {
     }
 }

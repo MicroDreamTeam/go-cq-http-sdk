@@ -15,7 +15,7 @@ class GetOnlineClients extends CreateData
      */
     public readonly array $clients;
 
-    public function __construct(array $clients)
+    public function __construct(array $clients, ...$args)
     {
         $this->clients = $clients;
     }

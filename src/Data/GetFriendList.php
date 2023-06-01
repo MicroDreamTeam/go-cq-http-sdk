@@ -13,6 +13,7 @@ class GetFriendList extends CreateData
         public readonly int $user_id,
         public readonly string $nickname,
         public readonly string $remark,
+        ...$args
     ) {
     }
 }

@@ -21,6 +21,7 @@ class GetGroupInfo extends CreateData
         public readonly int $group_level = 0,
         public readonly int $member_count = 0,
         public readonly int $max_member_count = 0,
+        ...$args
     ) {
     }
 

@@ -34,7 +34,8 @@ class GetMsg extends CreateData
         public readonly int $time,
         public readonly string $message,
         public readonly string $raw_message,
-        public readonly ?int $group_id = null
+        public readonly ?int $group_id = null,
+        ...$args
     ) {
         $this->sender = $sender;
     }

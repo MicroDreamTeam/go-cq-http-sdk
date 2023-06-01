@@ -17,7 +17,7 @@ class GetGroupSystemMsg extends CreateData
      * @param array|null $invited_requests 邀请消息列表
      * @param array|null $join_requests    进群消息列表
      */
-    public function __construct(?array $invited_requests = null, ?array $join_requests = null)
+    public function __construct(?array $invited_requests = null, ?array $join_requests = null, ...$args)
     {
         $this->invited_requests = $invited_requests ? $this->createArrayData($invited_requests, InvitedRequest::class) : null;
         $this->join_requests    = $join_requests ? $this->createArrayData($join_requests, JoinRequest::class) : null;

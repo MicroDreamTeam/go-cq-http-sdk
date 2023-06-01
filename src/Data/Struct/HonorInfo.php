@@ -17,6 +17,7 @@ class HonorInfo extends CreateData
         public readonly string $nickname,
         public readonly string $avatar,
         public readonly string $description,
+        ...$args
     ) {
     }
 }

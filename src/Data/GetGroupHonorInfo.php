@@ -42,6 +42,7 @@ class GetGroupHonorInfo extends CreateData
         ?array $legend_list = null,
         ?array $strong_newbie_list = null,
         ?array $emotion_list = null,
+        ...$args
     ) {
         $this->current_talkative  = $current_talkative ? TalkativeHonorInfo::create($current_talkative) : null;
         $this->talkative_list     = $talkative_list ? $this->createArrayData($talkative_list, HonorInfo::class) : null;

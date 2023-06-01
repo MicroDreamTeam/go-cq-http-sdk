@@ -31,6 +31,7 @@ class JoinRequest extends CreateData
         public readonly ?string $action_uin_nick = null,
         public readonly ?int $action_uin = null,
         public readonly ?bool $suspicious = null,
+        ...$args
     ) {
     }
 }

@@ -23,6 +23,7 @@ class InvitedRequest extends CreateData
         public readonly string $group_name,
         public readonly bool $checked,
         public readonly int $actor,
+        ...$args
     ) {
     }
 }

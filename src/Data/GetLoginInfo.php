@@ -11,6 +11,7 @@ class GetLoginInfo extends CreateData
     public function __construct(
         public readonly int $user_id,
         public readonly string $nickname,
+        ...$args
     ) {
     }
 }

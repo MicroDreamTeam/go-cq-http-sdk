@@ -47,7 +47,8 @@ class GetGroupMsgHistory extends CreateData
         public readonly string $message,
         public readonly string $raw_message,
         array $sender,
-        public readonly int $message_id
+        public readonly int $message_id,
+        ...$args
     ) {
         $this->sender    = Sender::create($sender);
         $this->anonymous = $anonymous ? Anonymous::create($anonymous) : null;

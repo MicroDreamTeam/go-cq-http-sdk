@@ -23,6 +23,7 @@ class Folder extends CreateData
         public readonly int $creator,
         public readonly string $creator_name,
         public readonly int $total_file_count,
+        ...$args
     ) {
     }
 }
