@@ -7,6 +7,7 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use Itwmw\GoCqHttp\Apis\Bot;
 use Itwmw\GoCqHttp\Apis\Friend;
+use Itwmw\GoCqHttp\Apis\GroupAction;
 use Itwmw\GoCqHttp\Apis\GroupInfo;
 use Itwmw\GoCqHttp\Apis\GroupSetting;
 use Itwmw\GoCqHttp\Apis\Image;
@@ -24,6 +25,7 @@ use Itwmw\GoCqHttp\Middlewares\ResponseMiddleware;
  * @property-read Request      $request      上报处理相关 API
  * @property-read GroupInfo    $groupInfo    群信息相关 API
  * @property-read GroupSetting $groupSetting 群设置相关 API
+ * @property-read GroupAction  $groupAction  群操作相关 API
  */
 class Api
 {

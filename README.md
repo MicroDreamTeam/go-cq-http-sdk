@@ -37,7 +37,7 @@ composer require itwmw/go-cq-http-sdk
 ```
 ### 使用示例
 ```php
-$api = new Itwmw\GoCqHttpApi();
+$api = new Itwmw\GoCqHttp\Api();
 // 发送私聊消息
 $api->message->sendMsg('测试消息', 'private', 995645888);
 ```
@@ -116,3 +116,18 @@ $api->groupSetting;
 - [x] 设置群管理员 `setGroupAdmin`
 - [x] 设置群名片 ( 群备注 ) `setGroupCard`
 - [x] 设置群组专属头衔 `setGroupSpecialTitle`
+
+```php
+$api->groupAction;
+```
+- [x] 群单人禁言 `setGroupBan`
+- [x] 群全员禁言 `setGroupWholeBan`
+- [x] 群匿名用户禁言 `setGroupAnonymousBan`
+- [x] 设置精华消息 `setEssenceMsg`
+- [x] 移出精华消息 `deleteEssenceMsg`
+- [x] 群打卡 `sendGroupSign`
+- [x] 群设置匿名 `setGroupAnonymous`
+- [x] 发送群公告 `sendGroupNotice`
+- [x] 获取群公告 `getGroupNotice`
+- [x] 群组踢人 `setGroupKick`
+- [x] 退出群组 `setGroupLeave`
