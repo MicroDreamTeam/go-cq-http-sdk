@@ -131,3 +131,16 @@ $api->groupAction;
 - [x] 获取群公告 `getGroupNotice`
 - [x] 群组踢人 `setGroupKick`
 - [x] 退出群组 `setGroupLeave`
+
+```php
+$api->groupFile;
+```
+- [x] 上传群文件 `uploadGroupFile`
+- [x] 删除群文件 `deleteGroupFile`
+- [x] 创建群文件文件夹 `createGroupFileFolder`
+- [x] 删除群文件文件夹 `deleteGroupFolder`
+- [x] 获取群文件系统信息 `getGroupFileSystemInfo`
+- [x] 获取群根目录文件列表 `getGroupRootFiles`
+- [x] 获取群子目录文件列表 `getGroupFilesByFolder`
+- [x] 获取群文件资源链接 `getGroupFileUrl`
+- [x] 上传私聊文件 `uploadPrivateFile`
