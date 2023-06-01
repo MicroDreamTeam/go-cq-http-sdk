@@ -107,3 +107,12 @@ $api->groupInfo;
 - [x] 获取群系统消息 `getGroupSystemMsg`
 - [x] 获取精华消息列表 `getEssenceMsgList`
 - [x] 获取群 @全体成员 剩余次数 `getGroupAtAllRemain`
+
+```php
+$api->groupSetting;
+```
+- [x] 设置群名 `setGroupName`
+- [x] 设置群头像 `setGroupPortrait`
+- [x] 设置群管理员 `setGroupAdmin`
+- [x] 设置群名片 ( 群备注 ) `setGroupCard`
+- [x] 设置群组专属头衔 `setGroupSpecialTitle`
