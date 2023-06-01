@@ -54,6 +54,24 @@ class Bot extends BaseApi
     }
 
     /**
+     * 获取企点账号信息
+     *
+     * **该API只有企点协议可用**
+     *
+     * @return array
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Itwmw\GoCqHttp\Exceptions\ApiException
+     * @throws \Itwmw\GoCqHttp\Exceptions\ApiHttpException
+     *
+     * @noinspection PhpFullyQualifiedNameUsageInspection
+     */
+    public function qiDianGetAccountInfo(): array
+    {
+        return $this->client->get('/qidian_get_account_info')->getData();
+    }
+
+    /**
      * 获取在线机型
      *
      * @param string $model 机型名称
