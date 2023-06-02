@@ -42,7 +42,7 @@ $api = new Itwmw\GoCqHttp\Api();
 $api->message->sendMsg('测试消息', 'private', 995645888);
 ```
 
-### 已完成Api
+### 已支持Api
 
 ```php
 $api->bot;
@@ -159,3 +159,48 @@ $api->cq;
 - [x] 检查链接安全性 `checkUrlSafely`
 - [x] 获取中文分词 ( 隐藏 API ) `getWordSlices`
 - [x] 对事件执行快速操作 ( 隐藏 API ) `handleQuickOperation`
+
+### 支持的 CQ 码
+- [x] QQ 表情 `Itwmw\GoCqHttp\CqCode\Face`
+- [x] 语音 `Itwmw\GoCqHttp\CqCode\Record`
+- [x] 短视频 `Itwmw\GoCqHttp\CqCode\Video`
+- [x] @某人 `Itwmw\GoCqHttp\CqCode\At`
+- [x] 链接分享 `Itwmw\GoCqHttp\CqCode\Share`
+- [x] 音乐分享 `Itwmw\GoCqHttp\CqCode\Music`
+- [x] 自定义音乐分享 `Itwmw\GoCqHttp\CqCode\MusicCustom`
+- [x] 图片 `Itwmw\GoCqHttp\CqCode\Image`
+- [x] 回复 `Itwmw\GoCqHttp\CqCode\Reply`
+- [x] 红包 `Itwmw\GoCqHttp\CqCode\RedBag`
+- [x] 戳一戳 `Itwmw\GoCqHttp\CqCode\Poke`
+- [x] 礼物 `Itwmw\GoCqHttp\CqCode\Gift`
+- [x] 合并转发 `Itwmw\GoCqHttp\CqCode\Forward`
+- [x] XML 消息 `Itwmw\GoCqHttp\CqCode\Xml`
+- [x] JSON 消息 `Itwmw\GoCqHttp\CqCode\Json`
+- [x] 装逼大图  `Itwmw\GoCqHttp\CqCode\CardImage`
+- [x] 文本转语音  `Itwmw\GoCqHttp\CqCode\Tts`
+
+#### 使用示例
+发送：
+```php
+use Itwmw\GoCqHttp\Api;
+use Itwmw\GoCqHttp\CqCode\Tts;
+
+$api = new Api();
+$tts = new Tts('你好');
+$api->message->sendMsg($tts, user_id: 995645888);
+```
+接受：
+```php
+$msg = "[CQ:share,url=https://www.baidu.com/,title=百度一下,content=百度一下，你就知道,image=https://www.baidu.com/img/bd_logo1.png]";
+$share = Share::create($msg);
+print_r($share);
+//Itwmw\GoCqHttp\CqCode\Share Object
+//(
+//    [url] => https://www.baidu.com/
+//    [title] => 百度一下
+//    [content] => 百度一下，你就知道
+//    [image] => https://www.baidu.com/img/bd_logo1.png
+//)
+echo $share;
+// [CQ:share,url=https://www.baidu.com/,title=百度一下,content=百度一下，你就知道,image=https://www.baidu.com/img/bd_logo1.png]
+```
