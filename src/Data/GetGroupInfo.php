@@ -14,13 +14,13 @@ class GetGroupInfo extends CreateData
      * @param int         $max_member_count  最大成员数（群容量）
      */
     public function __construct(
-        public readonly int $group_id,
-        public readonly string $group_name,
-        public readonly ?string $group_memo = null,
-        public readonly int $group_create_time = 0,
-        public readonly int $group_level = 0,
-        public readonly int $member_count = 0,
-        public readonly int $max_member_count = 0,
+        public int $group_id,
+        public string $group_name,
+        public ?string $group_memo = null,
+        public int $group_create_time = 0,
+        public int $group_level = 0,
+        public int $member_count = 0,
+        public int $max_member_count = 0,
         ...$args
     ) {
     }
@@ -32,6 +32,6 @@ class GetGroupInfo extends CreateData
      */
     public function getGroupImage(): string
     {
-        return "https://p.qlogo.cn/gh/{$this->group_id}/{$this->group_id}/100";
+        return "https://p.qlogo.cn/gh/$this->group_id/$this->group_id/100";
     }
 }

@@ -12,7 +12,7 @@ class GetMsg extends CreateData
      *     user_id: int
      * }
      */
-    public readonly array $sender;
+    public array $sender;
 
     /**
      * @param bool     $group        是否是群消息
@@ -26,15 +26,15 @@ class GetMsg extends CreateData
      * @param int|null $group_id     是群消息时的群号(否则不存在此字段)
      */
     public function __construct(
-        public readonly bool $group,
-        public readonly int $message_id,
-        public readonly int $real_id,
-        public readonly string $message_type,
+        public bool $group,
+        public int $message_id,
+        public int $real_id,
+        public string $message_type,
         array $sender,
-        public readonly int $time,
-        public readonly string $message,
-        public readonly string $raw_message,
-        public readonly ?int $group_id = null,
+        public int $time,
+        public string $message,
+        public string $raw_message,
+        public ?int $group_id = null,
         ...$args
     ) {
         $this->sender = $sender;

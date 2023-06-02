@@ -8,10 +8,10 @@ use Itwmw\GoCqHttp\Data\Struct\JoinRequest;
 class GetGroupSystemMsg extends CreateData
 {
     /** @var ArrayData<int, InvitedRequest>|null 邀请消息列表 */
-    public readonly ?ArrayData $invited_requests;
+    public ?ArrayData $invited_requests;
 
     /** @var ArrayData<int, JoinRequest>|null 进群消息列表 */
-    public readonly ?ArrayData $join_requests;
+    public ?ArrayData $join_requests;
 
     /**
      * @param array|null $invited_requests 邀请消息列表

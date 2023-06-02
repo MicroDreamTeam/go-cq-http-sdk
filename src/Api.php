@@ -5,6 +5,7 @@ namespace Itwmw\GoCqHttp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
+use InvalidArgumentException;
 use Itwmw\GoCqHttp\Apis\Bot;
 use Itwmw\GoCqHttp\Apis\Cq;
 use Itwmw\GoCqHttp\Apis\Friend;
@@ -60,7 +61,7 @@ class Api
             return $handler(...$params);
         }
 
-        throw new \InvalidArgumentException('中间件配置错误');
+        throw new InvalidArgumentException('中间件配置错误');
     }
 
     public function __get(string $name)
@@ -74,6 +75,6 @@ class Api
             $this->apis[$name] = new $apiName($this->client);
             return $this->apis[$name];
         }
-        throw new \InvalidArgumentException('属性不存在');
+        throw new InvalidArgumentException('属性不存在');
     }
 }

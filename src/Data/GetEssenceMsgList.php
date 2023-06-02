@@ -14,13 +14,13 @@ class GetEssenceMsgList extends CreateData
      * @param int    $message_id    消息ID
      */
     public function __construct(
-        public readonly int $sender_id,
-        public readonly string $sender_nick,
-        public readonly int $sender_time,
-        public readonly int $operator_id,
-        public readonly string $operator_nick,
-        public readonly int $operator_time,
-        public readonly int $message_id,
+        public int $sender_id,
+        public string $sender_nick,
+        public int $sender_time,
+        public int $operator_id,
+        public string $operator_nick,
+        public int $operator_time,
+        public int $message_id,
         ...$args
     ) {
     }

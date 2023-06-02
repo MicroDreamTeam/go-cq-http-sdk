@@ -13,10 +13,10 @@ class HonorInfo extends CreateData
      * @param string $description 荣誉描述
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
-        public readonly string $avatar,
-        public readonly string $description,
+        public int $user_id,
+        public string $nickname,
+        public string $avatar,
+        public string $description,
         ...$args
     ) {
     }

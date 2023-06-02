@@ -2,11 +2,13 @@
 
 namespace Itwmw\GoCqHttp\Support;
 
+use Closure;
+
 class Utils
 {
     public static function value($value, ...$args)
     {
-        return $value instanceof \Closure ? $value(...$args) : $value;
+        return $value instanceof Closure ? $value(...$args) : $value;
     }
 
     public static function parseCqCode(string $code, ?string $type = null): array
@@ -32,5 +34,22 @@ class Utils
             $data[$item[0]] = $item[1];
         }
         return $data;
+    }
+
+    public static function arrayIsList(array $array): bool
+    {
+        if ([] === $array || $array === array_values($array)) {
+            return true;
+        }
+
+        $nextKey = -1;
+
+        foreach ($array as $k => $v) {
+            if ($k !== ++$nextKey) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

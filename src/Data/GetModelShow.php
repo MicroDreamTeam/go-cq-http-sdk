@@ -10,7 +10,7 @@ class GetModelShow extends CreateData
      *     need_pay: bool
      * }
      */
-    public readonly array $variants;
+    public array $variants;
 
     public function __construct(array $variants, ...$args)
     {

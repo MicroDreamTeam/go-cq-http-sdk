@@ -12,11 +12,11 @@ class GetGroupFileSystemInfo extends CreateData
      * @param int $group_id    群号
      */
     public function __construct(
-        public readonly int $file_count,
-        public readonly int $limit_count,
-        public readonly int $used_space,
-        public readonly int $total_space,
-        public readonly int $group_id,
+        public int $file_count,
+        public int $limit_count,
+        public int $used_space,
+        public int $total_space,
+        public int $group_id,
         ...$args
     ) {
     }

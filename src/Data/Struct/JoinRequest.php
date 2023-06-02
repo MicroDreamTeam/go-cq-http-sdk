@@ -20,17 +20,17 @@ class JoinRequest extends CreateData
      * @param bool|null   $suspicious      可疑用户
      */
     public function __construct(
-        public readonly int $request_id,
-        public readonly int $requester_uin,
-        public readonly string $requester_nick,
-        public readonly string $message,
-        public readonly int $group_id,
-        public readonly string $group_name,
-        public readonly bool $checked,
-        public readonly int $actor,
-        public readonly ?string $action_uin_nick = null,
-        public readonly ?int $action_uin = null,
-        public readonly ?bool $suspicious = null,
+        public int $request_id,
+        public int $requester_uin,
+        public string $requester_nick,
+        public string $message,
+        public int $group_id,
+        public string $group_name,
+        public bool $checked,
+        public int $actor,
+        public ?string $action_uin_nick = null,
+        public ?int $action_uin = null,
+        public ?bool $suspicious = null,
         ...$args
     ) {
     }

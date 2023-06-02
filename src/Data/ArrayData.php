@@ -2,6 +2,7 @@
 
 namespace Itwmw\GoCqHttp\Data;
 
+use ArrayAccess;
 use Itwmw\GoCqHttp\Interfaces\Arrayable;
 use Itwmw\GoCqHttp\Support\Utils;
 
@@ -9,9 +10,9 @@ use Itwmw\GoCqHttp\Support\Utils;
  * @template TKey of array-key
  * @template TValue
  *
- * @implements \ArrayAccess<TKey, TValue>
+ * @implements ArrayAccess<TKey, TValue>
  */
-final class ArrayData implements \ArrayAccess
+final class ArrayData implements ArrayAccess
 {
     /**
      * @var array<TKey, TValue>
@@ -32,6 +33,8 @@ final class ArrayData implements \ArrayAccess
      * @param  TKey  $key
      * @param  mixed|TGetDefault|(\Closure(): TGetDefault)  $default
      * @return TValue|TGetDefault
+     *
+     * @noinspection PhpFullyQualifiedNameUsageInspection
      */
     public function get($key, mixed $default = null)
     {

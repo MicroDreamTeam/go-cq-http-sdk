@@ -15,9 +15,9 @@ class Anonymous extends CreateData
      * @param string $flag 匿名用户 flag, 在调用禁言 API 时需要传入
      */
     public function __construct(
-        public readonly int $id,
-        public readonly string $name,
-        public readonly string $flag,
+        public int $id,
+        public string $name,
+        public string $flag,
         ...$args
     ) {
     }

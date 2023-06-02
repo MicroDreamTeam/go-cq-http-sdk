@@ -13,10 +13,10 @@ class TalkativeHonorInfo extends CreateData
      * @param int    $day_count 持续天数
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
-        public readonly string $avatar,
-        public readonly int $day_count,
+        public int $user_id,
+        public string $nickname,
+        public string $avatar,
+        public int $day_count,
         ...$args
     ) {
     }

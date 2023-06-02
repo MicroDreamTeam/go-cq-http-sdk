@@ -23,22 +23,22 @@ class GetGroupMemberInfo extends CreateData
      * @param int    $shut_up_timestamp 禁言到期时间
      */
     public function __construct(
-        public readonly int $group_id,
-        public readonly int $user_id,
-        public readonly string $nickname,
-        public readonly string $card,
-        public readonly string $sex,
-        public readonly int $age,
-        public readonly string $area,
-        public readonly int $join_time,
-        public readonly int $last_sent_time,
-        public readonly string $level,
-        public readonly string $role,
-        public readonly bool $unfriendly,
-        public readonly string $title,
-        public readonly int $title_expire_time,
-        public readonly bool $card_changeable,
-        public readonly int $shut_up_timestamp,
+        public int $group_id,
+        public int $user_id,
+        public string $nickname,
+        public string $card,
+        public string $sex,
+        public int $age,
+        public string $area,
+        public int $join_time,
+        public int $last_sent_time,
+        public string $level,
+        public string $role,
+        public bool $unfriendly,
+        public string $title,
+        public int $title_expire_time,
+        public bool $card_changeable,
+        public int $shut_up_timestamp,
         ...$args
     ) {
     }

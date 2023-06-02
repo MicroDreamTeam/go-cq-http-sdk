@@ -8,10 +8,10 @@ use Itwmw\GoCqHttp\Data\Struct\Folder;
 class GetGroupRootFiles extends CreateData
 {
     /** @var ArrayData<int, File>|null  文件列表*/
-    public readonly ?ArrayData $files;
+    public ?ArrayData $files;
 
     /** @var ArrayData<int, Folder>|null 文件夹列表 */
-    public readonly ?ArrayData $folders;
+    public ?ArrayData $folders;
 
     /**
      * @param array|null $files   文件列表

@@ -17,14 +17,14 @@ class Statistics extends CreateData
      * @param int $last_message_time 最后一条消息时间
      */
     public function __construct(
-        public readonly int $packet_received,
-        public readonly int $packet_sent,
-        public readonly int $packet_lost,
-        public readonly int $message_received,
-        public readonly int $message_sent,
-        public readonly int $disconnect_times,
-        public readonly int $lost_times,
-        public readonly int $last_message_time,
+        public int $packet_received,
+        public int $packet_sent,
+        public int $packet_lost,
+        public int $message_received,
+        public int $message_sent,
+        public int $disconnect_times,
+        public int $lost_times,
+        public int $last_message_time,
         ...$args
     ) {
     }

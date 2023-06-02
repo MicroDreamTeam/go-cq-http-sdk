@@ -16,13 +16,13 @@ class InvitedRequest extends CreateData
      * @param int    $actor        未处理为0
      */
     public function __construct(
-        public readonly int $request_id,
-        public readonly int $invitor_uin,
-        public readonly string $invitor_nick,
-        public readonly int $group_id,
-        public readonly string $group_name,
-        public readonly bool $checked,
-        public readonly int $actor,
+        public int $request_id,
+        public int $invitor_uin,
+        public string $invitor_nick,
+        public int $group_id,
+        public string $group_name,
+        public bool $checked,
+        public int $actor,
         ...$args
     ) {
     }

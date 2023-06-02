@@ -23,18 +23,18 @@ class Sender extends CreateData
      * @param string|null $title    专属头衔
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
+        public int $user_id,
+        public string $nickname,
         #[ExpectedValues(values: ['male', 'female', 'unknown'])]
-        public readonly string $sex,
-        public readonly int $age,
-        public readonly ?int $group_id = null,
-        public readonly ?string $card = null,
-        public readonly ?string $area = null,
-        public readonly ?string $level = null,
+        public string $sex,
+        public int $age,
+        public ?int $group_id = null,
+        public ?string $card = null,
+        public ?string $area = null,
+        public ?string $level = null,
         #[ExpectedValues(values: ['owner', 'admin', 'member'])]
-        public readonly ?string $role = null,
-        public readonly ?string $title = null,
+        public ?string $role = null,
+        public ?string $title = null,
         ...$args
     ) {
     }

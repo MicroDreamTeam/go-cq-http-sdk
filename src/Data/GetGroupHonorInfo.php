@@ -8,22 +8,22 @@ use Itwmw\GoCqHttp\Data\Struct\TalkativeHonorInfo;
 class GetGroupHonorInfo extends CreateData
 {
     /** @var TalkativeHonorInfo|null 当前龙王, 仅 type 为 talkative 或 all 时有数据 */
-    public readonly ?TalkativeHonorInfo $current_talkative;
+    public ?TalkativeHonorInfo $current_talkative;
 
     /** @var ArrayData<int, HonorInfo>|null 历史龙王, 仅 type 为 talkative 或 all 时有数据 */
-    public readonly ?ArrayData $talkative_list;
+    public ?ArrayData $talkative_list;
 
     /** @var ArrayData<int, HonorInfo>|null 群聊之火, 仅 type 为 performer 或 all 时有数据 */
-    public readonly ?ArrayData $performer_list;
+    public ?ArrayData $performer_list;
 
     /** @var ArrayData<int, HonorInfo>|null 群聊炽焰, 仅 type 为 legend 或 all 时有数据 */
-    public readonly ?ArrayData $legend_list;
+    public ?ArrayData $legend_list;
 
     /** @var ArrayData<int, HonorInfo>|null 冒尖小春笋, 仅 type 为 strong_newbie 或 all 时有数据 */
-    public readonly ?ArrayData $strong_newbie_list;
+    public ?ArrayData $strong_newbie_list;
 
     /** @var ArrayData<int, HonorInfo>|null 快乐之源, 仅 type 为 emotion 或 all 时有数据 */
-    public readonly ?ArrayData $emotion_list;
+    public ?ArrayData $emotion_list;
 
     /**
      * @param int        $group_id           群号
@@ -35,7 +35,7 @@ class GetGroupHonorInfo extends CreateData
      * @param array|null $emotion_list       快乐之源, 仅 type 为 emotion 或 all 时有数据
      */
     public function __construct(
-        public readonly int $group_id,
+        public int $group_id,
         ?array $current_talkative = null,
         ?array $talkative_list = null,
         ?array $performer_list = null,

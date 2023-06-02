@@ -13,7 +13,7 @@ class GetOnlineClients extends CreateData
      *     device_kind: string,
      * }>
      */
-    public readonly array $clients;
+    public array $clients;
 
     public function __construct(array $clients, ...$args)
     {

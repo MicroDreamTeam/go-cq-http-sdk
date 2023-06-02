@@ -2,11 +2,13 @@
 
 namespace Itwmw\GoCqHttp\Data;
 
+use ArrayAccess;
 use Itwmw\GoCqHttp\Interfaces\Arrayable;
+use Stringable;
 
-class CreateData implements \Stringable, Arrayable
+class CreateData implements Stringable, Arrayable, ArrayAccess
 {
-    public static function create(array $data)
+    public static function create(array $data): static
     {
         return new static(...$data);
     }
@@ -39,5 +41,25 @@ class CreateData implements \Stringable, Arrayable
     public function __toString(): string
     {
         return json_encode($this->toArray());
+    }
+
+    public function offsetExists(mixed $offset): bool
+    {
+        return property_exists($this, $offset);
+    }
+
+    public function offsetGet(mixed $offset): mixed
+    {
+        return $this->$offset;
+    }
+
+    public function offsetSet(mixed $offset, mixed $value): void
+    {
+        $this->$offset = $value;
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        unset($this->$offset);
     }
 }

@@ -10,9 +10,9 @@ class GetImage extends CreateData
      * @param string $url      图片下载地址
      */
     public function __construct(
-        public readonly int $size,
-        public readonly string $filename,
-        public readonly string $url,
+        public int $size,
+        public string $filename,
+        public string $url,
         ...$args
     ) {
     }

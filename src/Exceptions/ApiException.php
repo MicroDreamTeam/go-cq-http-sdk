@@ -2,11 +2,13 @@
 
 namespace Itwmw\GoCqHttp\Exceptions;
 
+use Exception;
+use Throwable;
 use Psr\Http\Message\ResponseInterface;
 
-class ApiException extends \Exception
+class ApiException extends Exception
 {
-    public function __construct(string $message = '', int $code = 0, ?\Throwable $previous = null, protected ?ResponseInterface $response = null)
+    public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null, protected ?ResponseInterface $response = null)
     {
         parent::__construct($message, $code, $previous);
     }

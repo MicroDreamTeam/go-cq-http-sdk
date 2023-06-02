@@ -16,14 +16,14 @@ class GetStrangerInfo extends CreateData
      * @param int    $login_days 登录天数
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
+        public int $user_id,
+        public string $nickname,
         #[ExpectedValues(values: ['male', 'female', 'unknown'])]
-        public readonly string $sex,
-        public readonly int $age,
-        public readonly string $qid,
-        public readonly int $level,
-        public readonly int $login_days,
+        public string $sex,
+        public int $age,
+        public string $qid,
+        public int $level,
+        public int $login_days,
         ...$args
     ) {
     }

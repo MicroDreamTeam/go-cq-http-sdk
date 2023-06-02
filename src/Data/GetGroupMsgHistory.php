@@ -9,10 +9,10 @@ use JetBrains\PhpStorm\ExpectedValues;
 class GetGroupMsgHistory extends CreateData
 {
     /** @var Sender 发送人信息 */
-    public readonly Sender $sender;
+    public Sender $sender;
 
     /** @var Anonymous|null 匿名信息, 如果不是匿名消息则为 null */
-    public readonly ?Anonymous $anonymous;
+    public ?Anonymous $anonymous;
 
     /**
      * @param string     $post_type    上报类型
@@ -32,22 +32,22 @@ class GetGroupMsgHistory extends CreateData
      */
     public function __construct(
         #[ExpectedValues(values: ['message'])]
-        public readonly string $post_type,
+        public string $post_type,
         #[ExpectedValues(values: ['group'])]
-        public readonly string $message_type,
-        public readonly int $time,
-        public readonly int $self_id,
+        public string $message_type,
+        public int $time,
+        public int $self_id,
         #[ExpectedValues(values: ['normal', 'anonymous', 'notice'])]
-        public readonly string $sub_type,
+        public string $sub_type,
         ?array $anonymous,
-        public readonly int $group_id,
-        public readonly int $message_seq,
-        public readonly int $user_id,
-        public readonly int $font,
-        public readonly string $message,
-        public readonly string $raw_message,
+        public int $group_id,
+        public int $message_seq,
+        public int $user_id,
+        public int $font,
+        public string $message,
+        public string $raw_message,
         array $sender,
-        public readonly int $message_id,
+        public int $message_id,
         ...$args
     ) {
         $this->sender    = Sender::create($sender);

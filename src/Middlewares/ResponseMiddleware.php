@@ -2,12 +2,14 @@
 
 namespace Itwmw\GoCqHttp\Middlewares;
 
+use Closure;
 use Itwmw\GoCqHttp\Data\ArrayData;
 use Itwmw\GoCqHttp\Data\CreateData;
 use Itwmw\GoCqHttp\Exceptions\ApiException;
 use Itwmw\GoCqHttp\Exceptions\ApiHttpException;
 use Itwmw\GoCqHttp\Support\ApiResponse;
 use Itwmw\GoCqHttp\Support\Str;
+use Itwmw\GoCqHttp\Support\Utils;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -18,7 +20,7 @@ class ResponseMiddleware
         'get_group_msg_history' => 'messages',
     ];
 
-    public function __invoke(): \Closure
+    public function __invoke(): Closure
     {
         return function (callable $handler) {
             return function (
@@ -35,6 +37,14 @@ class ResponseMiddleware
         };
     }
 
+    /**
+     * @param ResponseInterface $response
+     * @param RequestInterface $request
+     *
+     * @return ApiResponse
+     * @throws ApiException
+     * @throws ApiHttpException
+     */
     protected function responseHandler(ResponseInterface $response, RequestInterface $request): ApiResponse
     {
         if (200 !== $response->getStatusCode()) {
@@ -73,7 +83,7 @@ class ResponseMiddleware
             $data = $data[$secondaryField] ?? null;
         }
         if (class_exists($dataClassName) && is_array($data)) {
-            if (array_is_list($data)) {
+            if (Utils::arrayIsList($data)) {
                 $data = array_map(function ($item) use ($dataClassName) {
                     return $dataClassName::create($item);
                 }, $data);

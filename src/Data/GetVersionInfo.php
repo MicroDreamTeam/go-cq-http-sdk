@@ -20,19 +20,19 @@ class GetVersionInfo extends CreateData
      * @param string     $version                    应用版本, 如 v0.9.40-fix4
      */
     public function __construct(
-        public readonly string $app_name,
-        public readonly string $app_version,
-        public readonly string $app_full_name,
-        public readonly string $protocol_name,
-        public readonly string $protocol_version,
-        public readonly string $coolq_edition,
-        public readonly string $coolq_directory,
-        public readonly string $plugin_version,
-        public readonly int $plugin_build_number,
-        public readonly string $plugin_build_configuration,
-        public readonly string $runtime_version,
-        public readonly string $runtime_os,
-        public readonly string $version,
+        public string $app_name,
+        public string $app_version,
+        public string $app_full_name,
+        public string $protocol_name,
+        public string $protocol_version,
+        public string $coolq_edition,
+        public string $coolq_directory,
+        public string $plugin_version,
+        public int $plugin_build_number,
+        public string $plugin_build_configuration,
+        public string $runtime_version,
+        public string $runtime_os,
+        public string $version,
         ...$args
     ) {
     }

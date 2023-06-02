@@ -7,9 +7,9 @@ use Itwmw\GoCqHttp\Data\Struct\Statistics;
 class GetStatus extends CreateData
 {
     /** @var Statistics 运行统计 */
-    public readonly Statistics $stat;
+    public Statistics $stat;
 
-    public readonly bool $plugins_good;
+    public bool $plugins_good;
 
     /**
      * @param bool       $app_initialized 原 CQHTTP 字段, 恒定为 true
@@ -21,12 +21,12 @@ class GetStatus extends CreateData
      * @param array      $stat            运行统计
      */
     public function __construct(
-        public readonly bool $app_initialized,
-        public readonly bool $app_enabled,
+        public bool $app_initialized,
+        public bool $app_enabled,
         ?bool $plugins_good,
-        public readonly bool $app_good,
-        public readonly bool $online,
-        public readonly bool $good,
+        public bool $app_good,
+        public bool $online,
+        public bool $good,
         array $stat = [],
         ...$args
     ) {

@@ -18,10 +18,10 @@ class GetGroupNotice extends CreateData
      * } $message 公告内容
      */
     public function __construct(
-        public readonly string $notice_id,
-        public readonly int $sender_id,
-        public readonly int $publish_time,
-        public readonly array $message,
+        public string $notice_id,
+        public int $sender_id,
+        public int $publish_time,
+        public array $message,
         ...$args
     ) {
     }

@@ -20,17 +20,17 @@ class File extends CreateData
      * @param string $uploader_name  上传者名字
      */
     public function __construct(
-        public readonly int $group_id,
-        public readonly string $file_id,
-        public readonly string $file_name,
-        public readonly int $busid,
-        public readonly int $file_size,
-        public readonly int $upload_time,
-        public readonly int $dead_time,
-        public readonly int $modify_time,
-        public readonly int $download_times,
-        public readonly int $uploader,
-        public readonly string $uploader_name,
+        public int $group_id,
+        public string $file_id,
+        public string $file_name,
+        public int $busid,
+        public int $file_size,
+        public int $upload_time,
+        public int $dead_time,
+        public int $modify_time,
+        public int $download_times,
+        public int $uploader,
+        public string $uploader_name,
         ...$args
     ) {
     }

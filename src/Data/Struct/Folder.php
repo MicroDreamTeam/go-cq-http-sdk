@@ -16,13 +16,13 @@ class Folder extends CreateData
      * @param int    $total_file_count 子文件数量
      */
     public function __construct(
-        public readonly int $group_id,
-        public readonly string $folder_id,
-        public readonly string $folder_name,
-        public readonly int $create_time,
-        public readonly int $creator,
-        public readonly string $creator_name,
-        public readonly int $total_file_count,
+        public int $group_id,
+        public string $folder_id,
+        public string $folder_name,
+        public int $create_time,
+        public int $creator,
+        public string $creator_name,
+        public int $total_file_count,
         ...$args
     ) {
     }

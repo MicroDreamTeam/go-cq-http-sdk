@@ -10,9 +10,9 @@ class GetFriendList extends CreateData
      * @param string $remark   备注
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
-        public readonly string $remark,
+        public int $user_id,
+        public string $nickname,
+        public string $remark,
         ...$args
     ) {
     }

@@ -9,8 +9,8 @@ class GetLoginInfo extends CreateData
      * @param string $nickname QQ 昵称
      */
     public function __construct(
-        public readonly int $user_id,
-        public readonly string $nickname,
+        public int $user_id,
+        public string $nickname,
         ...$args
     ) {
     }

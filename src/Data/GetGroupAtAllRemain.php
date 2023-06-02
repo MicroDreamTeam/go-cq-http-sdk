@@ -10,9 +10,9 @@ class GetGroupAtAllRemain extends CreateData
      * @param int   $remain_at_all_count_for_uin   Bot 当天剩余 @全体成员 次数
      */
     public function __construct(
-        public readonly bool $can_at_all,
-        public readonly int $remain_at_all_count_for_group,
-        public readonly int $remain_at_all_count_for_uin,
+        public bool $can_at_all,
+        public int $remain_at_all_count_for_group,
+        public int $remain_at_all_count_for_uin,
         ...$args
     ) {
     }
