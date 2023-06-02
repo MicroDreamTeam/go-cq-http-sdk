@@ -6,9 +6,9 @@
 
 <div align="center">
 
-# go-cqhttp-sdk
+<h2>go-cqhttp-sdk</h2>
 
-**[go-cqhttp](https://github.com/Mrs4s/go-cqhttp)项目的PHP版SDK，拥有完整注释和代码提示**
+<b>[go-cqhttp](https://github.com/Mrs4s/go-cqhttp)项目的PHP版SDK，拥有完整注释和代码提示</b>
 
 </div>
 
