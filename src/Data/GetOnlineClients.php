@@ -2,21 +2,19 @@
 
 namespace Itwmw\GoCqHttp\Data;
 
+use Itwmw\GoCqHttp\Data\Struct\Device;
+
 class GetOnlineClients extends CreateData
 {
     /**
      * 在线客户端列表
      *
-     * @var array<int, array{
-     *     app_id: int,
-     *     device_name: string,
-     *     device_kind: string,
-     * }>
+     * @var ArrayData<int, Device>
      */
-    public array $clients;
+    public ArrayData $clients;
 
     public function __construct(array $clients, ...$args)
     {
-        $this->clients = $clients;
+        $this->clients = $this->createArrayData($clients, Device::class);
     }
 }

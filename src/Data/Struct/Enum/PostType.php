@@ -1,6 +1,6 @@
 <?php
 
-namespace Itwmw\GoCqHttp\Data\Struct;
+namespace Itwmw\GoCqHttp\Data\Struct\Enum;
 
 /**
  * 上报类型

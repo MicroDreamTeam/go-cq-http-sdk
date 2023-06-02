@@ -15,7 +15,7 @@ class CreateData implements Stringable, Arrayable, ArrayAccess
 
     public function toArray(): array
     {
-        $array = (array)$this;
+        $array = get_object_vars($this);
         foreach ($array as $key => $value) {
             if ($value instanceof Arrayable) {
                 $array[$key] = $value->toArray();

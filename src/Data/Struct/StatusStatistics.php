@@ -4,7 +4,7 @@ namespace Itwmw\GoCqHttp\Data\Struct;
 
 use Itwmw\GoCqHttp\Data\CreateData;
 
-class Statistics extends CreateData
+class StatusStatistics extends CreateData
 {
     /**
      * @param int $packet_received   收到的数据包总数
