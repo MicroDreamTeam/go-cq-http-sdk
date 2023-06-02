@@ -17,9 +17,9 @@ class BaseMessage extends BasePostMessage
     #[ExpectedValues(valuesFromClass: PostMessageType::class)]
     public string $message_type;
 
-    /** @var int 消息子类型 */
+    /** @var string 消息子类型 */
     #[ExpectedValues(valuesFromClass: PostMessageSubType::class)]
-    public int $sub_type;
+    public string $sub_type;
 
     /** @var int 消息 ID */
     public int $message_id;
