@@ -17,9 +17,13 @@ class Server
     {
     }
 
-    public function addHandler(callable $handler): static
+    /**
+     * @param callable|class-string $handler
+     * @return $this
+     */
+    public function addHandler(callable|string $handler): static
     {
-        $this->handlers[] = $handler;
+        $this->handlers[] = $this->makeClosure($handler);
         return $this;
     }
 
