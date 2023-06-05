@@ -63,6 +63,8 @@ $server->addHandler(function(BasePostMessage $message, \Closure $next) {
     // 处理消息
     return $next($message);
 });
+
+echo $server->handle();
 ```
 #### 使用独立的类来处理消息
 ```php
