@@ -3,6 +3,7 @@
 namespace Itwmw\GoCqHttp\Support;
 
 use Closure;
+use InvalidArgumentException;
 
 class Utils
 {
@@ -51,5 +52,17 @@ class Utils
         }
 
         return true;
+    }
+
+    public static function getMiddleware(string $class, ...$params)
+    {
+        if (class_exists($class) && method_exists($class, '__invoke')) {
+            $handler = function (...$args) use ($class) {
+                return (new $class())(...$args);
+            };
+            return $handler(...$params);
+        }
+
+        throw new InvalidArgumentException('中间件配置错误');
     }
 }

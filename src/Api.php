@@ -18,6 +18,7 @@ use Itwmw\GoCqHttp\Apis\Message;
 use Itwmw\GoCqHttp\Apis\Record;
 use Itwmw\GoCqHttp\Apis\Request;
 use Itwmw\GoCqHttp\Middlewares\ResponseMiddleware;
+use Itwmw\GoCqHttp\Support\Utils;
 
 /**
  * @property-read Bot          $bot          Bot 账号的相关 API
@@ -38,11 +39,13 @@ class Api
 
     private array $apis = [];
 
+    private Server $server;
+
     public function __construct(string $base_uri = 'http://127.0.0.1:5700')
     {
         $handler = new CurlHandler();
         $stack   = HandlerStack::create($handler);
-        $stack->push($this->getMiddleware(ResponseMiddleware::class));
+        $stack->push(Utils::getMiddleware(ResponseMiddleware::class));
 
         $this->client = new Client([
             'base_uri'    => $base_uri,
@@ -50,18 +53,13 @@ class Api
             'http_errors' => false,
             'handler'     => $stack
         ]);
+
+        $this->server = new Server();
     }
 
-    protected function getMiddleware(string $class, ...$params)
+    public function getServer(): Server
     {
-        if (class_exists($class) && method_exists($class, '__invoke')) {
-            $handler = function (...$args) use ($class) {
-                return (new $class())(...$args);
-            };
-            return $handler(...$params);
-        }
-
-        throw new InvalidArgumentException('中间件配置错误');
+        return $this->server;
     }
 
     public function __get(string $name)
