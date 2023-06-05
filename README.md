@@ -41,7 +41,79 @@ $api = new Itwmw\GoCqHttp\Api();
 // 发送私聊消息
 $api->message->sendMsg('测试消息', 'private', 995645888);
 ```
+### 处理上报消息
+SDK内置消息的处理：
+```php
+$server = $api->getServer();
+```
+你可以通过中间件模式来处理消息：
+```php
+use Itwmw\GoCqHttp\Data\Post\BasePostMessage;
 
+$server->addHandler(function(BasePostMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+})->addHandler(function(BasePostMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+})->addHandler(function(BasePostMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+})->addHandler(function(BasePostMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+});
+```
+#### 使用独立的类来处理消息
+```php
+use Itwmw\GoCqHttp\Data\Post\BasePostMessage;
+
+class MessageHandle
+{
+    public function __invoke(BasePostMessage $message, \Closure $next)
+    {
+        // 处理消息
+        return $next($message);
+    }
+}
+
+$server->addHandler(MessageHandle::class);
+```
+> 也支持`callable`类型的处理器
+
+#### 注册指定类型的处理器
+```php
+use Itwmw\GoCqHttp\Data\Post\PostMessageTyp;
+use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
+
+$server->addEventListener(PostMessageType::PRIVATE_MESSAGE, function (PrivateMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+});
+```
+或
+```php
+use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
+
+$server->addEventListener(PrivateMessage::class, function (PrivateMessage $message, \Closure $next) {
+    // 处理消息
+    return $next($message);
+});
+```
+> 同样也支持使用独立的类来处理消息
+
+#### 快捷操作
+部分类型的消息支持快捷操作，快捷操作的方法为 `response`，例：
+```php
+use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
+
+$server->addEventListener(PrivateMessage::class, function (PrivateMessage $message, \Closure $next) {
+    if ('再见' === $message->message) {
+        return $message->response('bye~');
+    }
+    return $next($message);
+});
+```
 ### 已支持Api
 
 ```php
