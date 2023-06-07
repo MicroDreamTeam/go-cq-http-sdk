@@ -168,6 +168,7 @@ class Server
             return '';
         }
         $handler = new Support\PostMessageHandler($this->handlers);
-        return $handler->handle($message);
+        $result  = $handler->handle($message);
+        return $result instanceof BasePostMessage ? '' : $result;
     }
 }
