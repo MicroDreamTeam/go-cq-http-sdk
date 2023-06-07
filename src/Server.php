@@ -5,7 +5,11 @@ namespace Itwmw\GoCqHttp;
 use Closure;
 use InvalidArgumentException;
 use Itwmw\GoCqHttp\Data\Post\BasePostMessage;
-use Itwmw\GoCqHttp\Data\Post\PostMessageType;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostMessageType;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostMetaEventType;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostNoticeType;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostRequestType;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostType;
 use Itwmw\GoCqHttp\Support\Str;
 use JetBrains\PhpStorm\ExpectedValues;
 
@@ -28,22 +32,83 @@ class Server
     }
 
     /**
-     * @template T of BasePostMessage
-     *
-     * @param class-string<T> $event
+     * @param string $type
      * @param callable|class-string $handler
      * @return $this
      */
-    public function addEventListener(
+    public function addMessageListener(
         #[ExpectedValues(valuesFromClass: PostMessageType::class)]
-        string $event,
+        string $type,
         callable|string $handler
     ): static {
         $handler = $this->makeClosure($handler);
 
         $this->addHandler(
-            function (BasePostMessage $message, Closure $next) use ($event, $handler): mixed {
-                return $message instanceof $event ? $handler($message, $next) : $next($message);
+            function (BasePostMessage $message, Closure $next) use ($type, $handler): mixed {
+                return PostType::MESSAGE === $message->post_type && $message->message_type === $type ? $handler($message, $next) : $next($message);
+            }
+        );
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @param callable|class-string $handler
+     * @return $this
+     */
+    public function addNoticeListener(
+        #[ExpectedValues(valuesFromClass: PostNoticeType::class)]
+        string $type,
+        callable|string $handler
+    ): static {
+        $handler = $this->makeClosure($handler);
+
+        $this->addHandler(
+            function (BasePostMessage $message, Closure $next) use ($type, $handler): mixed {
+                return PostType::NOTICE === $message->post_type && $message->notice_type === $type ? $handler($message, $next) : $next($message);
+            }
+        );
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @param callable|class-string $handler
+     * @return $this
+     */
+    public function addRequestListener(
+        #[ExpectedValues(valuesFromClass: PostRequestType::class)]
+        string $type,
+        callable|string $handler
+    ): static {
+        $handler = $this->makeClosure($handler);
+
+        $this->addHandler(
+            function (BasePostMessage $message, Closure $next) use ($type, $handler): mixed {
+                return PostType::REQUEST === $message->post_type && $message->request_type === $type ? $handler($message, $next) : $next($message);
+            }
+        );
+
+        return $this;
+    }
+
+    /**
+     * @param string $type
+     * @param callable|class-string $handler
+     * @return $this
+     */
+    public function addMetaEventListener(
+        #[ExpectedValues(valuesFromClass: PostMetaEventType::class)]
+        string $type,
+        callable|string $handler
+    ): static {
+        $handler = $this->makeClosure($handler);
+
+        $this->addHandler(
+            function (BasePostMessage $message, Closure $next) use ($type, $handler): mixed {
+                return PostType::META_EVENT === $message->post_type && $message->meta_event_type === $type ? $handler($message, $next) : $next($message);
             }
         );
 

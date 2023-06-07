@@ -85,20 +85,21 @@ $server->addHandler(MessageHandle::class);
 
 #### 注册指定类型的处理器
 ```php
-use Itwmw\GoCqHttp\Data\Post\PostMessageTyp;
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostMessageType;
 use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
 
-$server->addEventListener(PostMessageType::PRIVATE_MESSAGE, function (PrivateMessage $message, \Closure $next) {
+$server->addMessageListener(PostMessageType::PRIVATE, function (PrivateMessage $message, \Closure $next) {
     // 处理消息
     return $next($message);
 });
 ```
-或
-```php
-use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
 
-$server->addEventListener(PrivateMessage::class, function (PrivateMessage $message, \Closure $next) {
-    // 处理消息
+```php
+use Itwmw\GoCqHttp\Data\Struct\Enum\PostNoticeType;
+use Itwmw\GoCqHttp\Data\Post\Notice\GroupIncreaseNotice;
+
+$server->addNoticeListener(PostNoticeType::GROUP_INCREASE, function (GroupIncreaseNotice $message, Closure $next) {
+    // 处理群成员增加
     return $next($message);
 });
 ```
@@ -109,7 +110,7 @@ $server->addEventListener(PrivateMessage::class, function (PrivateMessage $messa
 ```php
 use Itwmw\GoCqHttp\Data\Post\Message\PrivateMessage;
 
-$server->addEventListener(PrivateMessage::class, function (PrivateMessage $message, \Closure $next) {
+$server->addMessageListener(PostMessageType::PRIVATE, function (PrivateMessage $message, \Closure $next) {
     if ('再见' === $message->message) {
         return $message->response('bye~');
     }
