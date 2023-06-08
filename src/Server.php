@@ -17,6 +17,8 @@ class Server
 {
     protected array $handlers = [];
 
+    protected BasePostMessage $message;
+
     public function __construct()
     {
     }
@@ -158,7 +160,13 @@ class Server
             return false;
         }
 
-        return $class::create($data);
+        $this->message = $class::create($data);
+        return $this->message;
+    }
+
+    public function getMessage(): BasePostMessage
+    {
+        return $this->message;
     }
 
     public function handle(): string
@@ -167,7 +175,7 @@ class Server
         if (!$message) {
             return '';
         }
-        $handler = new Support\PostMessageHandler($this->handlers);
+        $handler = new Support\Handler($this->handlers);
         $result  = $handler->handle($message);
         return $result instanceof BasePostMessage ? '' : $result;
     }

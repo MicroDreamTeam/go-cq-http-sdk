@@ -3,9 +3,8 @@
 namespace Itwmw\GoCqHttp\Support;
 
 use Closure;
-use Itwmw\GoCqHttp\Data\Post\BasePostMessage;
 
-class PostMessageHandler
+class Handler
 {
     /**
      * @param array<int, Closure> $handlers
@@ -33,14 +32,14 @@ class PostMessageHandler
         }, $this->handlers);
     }
 
-    public function handle(BasePostMessage $message)
+    public function handle(mixed $data)
     {
         $pipeline = array_reduce(
             array_reverse($this->pipes()),
             $this->carry(),
-            fn (BasePostMessage $message) => $message
+            fn (mixed $data) => $data
         );
 
-        return $pipeline($message);
+        return $pipeline($data);
     }
 }
