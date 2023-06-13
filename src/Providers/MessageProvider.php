@@ -16,8 +16,8 @@ class MessageProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Server::setMessageProvider(function () {
-            return $this->app->get(Request::class)->getContent();
+        Server::setMessageProvider(static function () {
+            return app(Request::class)->getContent();
         });
     }
 }
