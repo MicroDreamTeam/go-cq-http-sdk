@@ -164,9 +164,9 @@ class Server
         return $this->message;
     }
 
-    public function getMessage(): BasePostMessage
+    public function getMessage(): ?BasePostMessage
     {
-        return $this->message;
+        return $this->message ?? null;
     }
 
     public function handle(): string
