@@ -64,6 +64,8 @@ class Api
 
     public function __get(string $name)
     {
+        $name = ucfirst($name);
+
         if (isset($this->apis[$name])) {
             return $this->apis[$name];
         }
