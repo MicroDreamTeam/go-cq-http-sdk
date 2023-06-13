@@ -19,6 +19,8 @@ class Server
 
     protected BasePostMessage $message;
 
+    protected static Closure $messageProvider;
+
     public function __construct()
     {
     }
@@ -130,10 +132,20 @@ class Server
         throw new InvalidArgumentException(sprintf('Invalid handler: %s.', $handler));
     }
 
+    public static function setMessageProvider(Closure $provider): void
+    {
+        static::$messageProvider = $provider;
+    }
+
     protected function getPostMessage(): BasePostMessage|false
     {
-        $input = file_get_contents('php://input');
-        $data  = json_decode($input, true);
+        if (isset(static::$messageProvider)) {
+            $input = call_user_func(static::$messageProvider);
+        } else {
+            $input = file_get_contents('php://input');
+        }
+
+        $data = json_decode($input, true);
         if (JSON_ERROR_NONE !== json_last_error()) {
             return false;
         }
