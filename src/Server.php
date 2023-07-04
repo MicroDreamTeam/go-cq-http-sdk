@@ -23,6 +23,7 @@ class Server
 
     public function __construct()
     {
+        $this->refreshMessage();
     }
 
     /**
@@ -137,7 +138,7 @@ class Server
         static::$messageProvider = $provider;
     }
 
-    protected function getPostMessage(): BasePostMessage|false
+    public function refreshMessage(): BasePostMessage|false
     {
         if (isset(static::$messageProvider)) {
             $input = call_user_func(static::$messageProvider);
@@ -183,12 +184,11 @@ class Server
 
     public function handle(): string
     {
-        $message = $this->getPostMessage();
-        if (!$message) {
+        if (!$this->getMessage()) {
             return '';
         }
         $handler = new Support\Handler($this->handlers);
-        $result  = $handler->handle($message);
+        $result  = $handler->handle($this->message);
         return $result instanceof BasePostMessage ? '' : $result;
     }
 }
