@@ -17,6 +17,14 @@ abstract class BaseCqCode implements CqCodeInterfaces
         if (empty($data)) {
             return false;
         }
+        $ref         = new \ReflectionClass(static::class);
+        $constructor = $ref->getConstructor();
+        $params      = $constructor->getParameters();
+        $params      = array_filter($params, fn ($param) => !$param->isDefaultValueAvailable() && 'args' !== $param->getName());
+        $params      = array_map(fn ($param) => $param->getName(), $params);
+        if (count(array_diff($params, array_keys($data))) > 0) {
+            return false;
+        }
         return new static(...$data);
     }
 
